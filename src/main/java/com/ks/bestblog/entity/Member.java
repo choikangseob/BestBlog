@@ -1,6 +1,7 @@
 package com.ks.bestblog.entity;
 
 
+import com.ks.bestblog.dto.request.JoinMemberRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,5 +31,20 @@ public class Member {
         this.username = username;
         this.email = email;
 
+    }
+
+    public Member(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public static Member from(JoinMemberRequest joinMemberRequest) {
+        return new Member(
+
+                joinMemberRequest.username(),
+                joinMemberRequest.email(),
+                joinMemberRequest.password()
+        );
     }
 }

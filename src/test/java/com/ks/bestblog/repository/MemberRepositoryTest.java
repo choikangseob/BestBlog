@@ -51,7 +51,6 @@ class MemberRepositoryTest {
     void test3() {
       Optional<Member> member = memberRepository.findByUsername("gs");
 
-
     }
 
 }
