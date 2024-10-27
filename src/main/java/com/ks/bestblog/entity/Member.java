@@ -40,11 +40,13 @@ public class Member {
     }
 
     public static Member from(JoinMemberRequest joinMemberRequest) {
-        return new Member(
+        return new Member(joinMemberRequest);
+    }
 
-                joinMemberRequest.username(),
-                joinMemberRequest.email(),
-                joinMemberRequest.password()
-        );
+    public Member(JoinMemberRequest joinMemberRequest) {
+        this.username = joinMemberRequest.username();
+        this.email = joinMemberRequest.email();
+        this.password = joinMemberRequest.password();
+
     }
 }

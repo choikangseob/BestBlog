@@ -12,16 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class JoinMemberController {
-
     private final JoinMemberService joinMemberService;
 
     @PostMapping("/member")
     public ResponseEntity<MemberResponse> joinMember(
 
             @RequestBody JoinMemberRequest joinMemberRequest
-    ){
+            ) {
 
         return ResponseEntity.ok(joinMemberService.joinMember(joinMemberRequest));
     }
-
 }
