@@ -23,7 +23,7 @@ public class SecurityConfig {
         
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/practise/example/one","/member").permitAll()
+                        .requestMatchers("/practise/example/one","/member","/menu").permitAll()
                 );
 
         return http.build();

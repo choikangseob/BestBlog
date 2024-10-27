@@ -1,6 +1,7 @@
 package com.ks.bestblog.repository;
 
 import com.ks.bestblog.entity.Member;
+import com.ks.bestblog.entity.Menu;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ class MemberRepositoryTest {
 
     @Autowired
     private MemberRepository memberRepository;
+    private MenuRepository menuRepository;
 
     @Test
     @DisplayName("")
@@ -52,5 +54,14 @@ class MemberRepositoryTest {
       Optional<Member> member = memberRepository.findByUsername("gs");
 
     }
+    @Test
+    @DisplayName("")
+    @Description("")
+    void test4(){
+        // given
+        Optional<Menu> manu = menuRepository.findByMenuname("gs");
+        // when
 
+        // then
+    }
 }
