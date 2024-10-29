@@ -1,0 +1,8 @@
+### Send POST request with json body
+POST http://localhost:8080/delivery
+Content-Type: application/json
+
+{
+  "food": "몸에 좋은 장어",
+  "tip": 10000
+}
