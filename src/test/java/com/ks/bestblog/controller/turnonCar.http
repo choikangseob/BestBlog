@@ -1,0 +1,8 @@
+### Send POST request with json body
+POST http://localhost:8080/turnoncar
+Content-Type: application/json
+
+{
+  "engine": "시동을 겁니다",
+  "model": "그랜져"
+}
