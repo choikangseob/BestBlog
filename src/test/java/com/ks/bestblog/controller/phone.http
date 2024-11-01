@@ -1,0 +1,8 @@
+### Send POST request with json body
+POST http://localhost:8080/phone
+Content-Type: application/json
+
+{
+  "model": "A32",
+  "price": 320000
+}
