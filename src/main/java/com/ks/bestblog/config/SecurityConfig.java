@@ -1,16 +1,35 @@
 package com.ks.bestblog.config;
 
+import com.ks.bestblog.common.LoginFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private final AuthenticationConfiguration authenticationConfiguration;
+
+    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration) {
+        this.authenticationConfiguration = authenticationConfiguration;
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+
+        return configuration.getAuthenticationManager();
+    }
+
+
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
 
@@ -20,14 +39,31 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
        http
                .csrf(AbstractHttpConfigurer::disable);
+        // spring security 에서 제공하는 form login 기능을 사용하지 않겠다는 의미
+        http
+               .formLogin(AbstractHttpConfigurer::disable);
+
+       http
+               .httpBasic(AbstractHttpConfigurer::disable);
         
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/practise/example/one","/member","/menu", "/reservation","/reply"
                         ,"/store","/delivery","/customer","/emsnumber","/turnoncar"
-                        ,"/totalpeople","/phone","/test").permitAll()
+                        ,"/totalpeople","/phone","/test","/","login","/join").permitAll()
+                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                );
+        http
+                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration)), UsernamePasswordAuthenticationFilter.class);
+
+        http
+                .sessionManagement((session) ->session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 );
 
         return http.build();
     }
+
+
 }

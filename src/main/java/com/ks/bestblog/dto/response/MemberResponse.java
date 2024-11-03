@@ -7,8 +7,7 @@ import lombok.Builder;
 public record MemberResponse(
         Long id,
         String username,
-        String email,
-        String password
+        String email
 ) {
 
     public static MemberResponse of(Member savedMember) {
@@ -16,7 +15,6 @@ public record MemberResponse(
                 .id(savedMember.getId())
                 .username(savedMember.getUsername())
                 .email(savedMember.getEmail())
-                .password(savedMember.getPassword())
                 .build();
     }
 }
