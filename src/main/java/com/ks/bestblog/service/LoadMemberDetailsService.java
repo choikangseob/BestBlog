@@ -1,6 +1,7 @@
 package com.ks.bestblog.service;
 
 import com.ks.bestblog.common.MemberDetails;
+import com.ks.bestblog.dto.request.JoinMemberRequest;
 import com.ks.bestblog.entity.Member;
 import com.ks.bestblog.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +21,9 @@ public class LoadMemberDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Optional<Member> member =memberRepository.findByEmail(email);
+            Optional<Member> member =memberRepository.findByEmail(email);
 
-        Optional<MemberDetails> memberDetails = member.map(MemberDetails::new);
-
+            Optional<MemberDetails> memberDetails = member.map(MemberDetails::new);
 
         return memberDetails.orElse(null);
     }
