@@ -39,9 +39,9 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         //TODO : JWT 발급
         System.out.println("로그인 성공");
 
-        CustomUserDetails customUserDetails = (CustomUserDetails) authResult.getPrincipal();
+        MemberDetails memberDetails = (MemberDetails) authResult.getPrincipal();
 
-        String username = customUserDetails.getUsername();
+        String username = memberDetails.getUsername();
 
         Collection<? extends GrantedAuthority> authorities = authResult.getAuthorities();
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
