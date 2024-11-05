@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.entity;
 
 import jakarta.persistence.Entity;
@@ -25,3 +26,4 @@ public class Userentity {
 
 
 }
+*/

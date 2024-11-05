@@ -1,5 +1,5 @@
-/*
 package com.ks.bestblog.common;
+
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,33 +16,35 @@ import java.util.Collection;
 import java.util.Iterator;
 
 @RequiredArgsConstructor
-public class LoginFilter extends UsernamePasswordAuthenticationFilter {
-
+public class LoginFilter1 extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
 
     private final JWTUtil jwtUtil;
 
+
+
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse repsonse) throws AuthenticationException {
 
         String username = obtainUsername(request);
         String password = obtainPassword(request);
+        System.out.println(username);
 
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password,null);
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username, password, null);
 
-    return authenticationManager.authenticate(authToken);
+        return authenticationManager.authenticate(authToken);
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) {
-        
-        //TODO : JWT 발급
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult){
+
         System.out.println("로그인 성공");
 
-        MemberDetails memberDetails = (MemberDetails) authResult.getPrincipal();
 
-        String username = memberDetails.getUsername();
+        MemberDetails1 memberDetails1 = (MemberDetails1) authResult.getPrincipal();
+
+        String username = memberDetails1.getUsername();
 
         Collection<? extends GrantedAuthority> authorities = authResult.getAuthorities();
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
@@ -57,10 +59,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed){
-        //TODO : 403 반환
         System.out.println("로그인 실패");
-        response.setStatus(401);
 
     }
 }
-*/

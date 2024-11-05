@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.common;
 
 import com.ks.bestblog.entity.Userentity;
@@ -66,3 +67,4 @@ public class CustomUserDetails implements UserDetails {
         return true;
     }
 }
+*/

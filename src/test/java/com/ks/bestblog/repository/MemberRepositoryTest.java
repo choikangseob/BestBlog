@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.repository;
 
 import com.ks.bestblog.entity.Member;
@@ -65,3 +66,4 @@ class MemberRepositoryTest {
         // then
     }
 }
+*/

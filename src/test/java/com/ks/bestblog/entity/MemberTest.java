@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.entity;
 
 import jdk.jfr.Description;
@@ -20,4 +21,4 @@ class MemberTest {
         
     }
 
-}
+}*/

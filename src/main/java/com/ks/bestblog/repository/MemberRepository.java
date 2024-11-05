@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.repository;
 
 import com.ks.bestblog.entity.Member;
@@ -11,3 +12,4 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Optional<Member> findByEmail(String email);
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.controller;
 
 import com.ks.bestblog.dto.request.JoinMemberRequest1;
@@ -25,3 +26,4 @@ public class JoinMemberController1 {
         return ResponseEntity.ok(joinMemberService1.joinMember(joinMemberRequest1));
     }
 }
+*/

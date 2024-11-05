@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.service;
 
 import com.ks.bestblog.dto.request.JoinMemberRequest;
@@ -31,3 +32,4 @@ public class JoinMemberService {
     }
 
 }
+*/

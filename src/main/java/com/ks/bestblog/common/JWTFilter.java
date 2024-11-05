@@ -1,6 +1,6 @@
 package com.ks.bestblog.common;
 
-import com.ks.bestblog.entity.Member;
+import com.ks.bestblog.entity.Member1;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -47,13 +47,13 @@ public class JWTFilter extends OncePerRequestFilter {
         String username = jwtUtil.getUsername(token);
         String email = jwtUtil.getEmail(token);
 
-        Member member = new Member();
-        member.setUsername(username);
-        member.setEmail(email);
+        Member1 member1 = new Member1();
+        member1.setUsername(username);
+        member1.setEmail(email);
 
-        MemberDetails memberDetails = new MemberDetails(member);
+        MemberDetails1 memberDetails1 = new MemberDetails1(member1);
 
-        Authentication authToken = new UsernamePasswordAuthenticationToken(memberDetails, null, memberDetails.getAuthorities());
+        Authentication authToken = new UsernamePasswordAuthenticationToken(memberDetails1, null, memberDetails1.getAuthorities());
 
         SecurityContextHolder.getContext().setAuthentication(authToken);
 

@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.repository;
 
 import com.ks.bestblog.entity.Userentity;
@@ -10,3 +11,4 @@ public interface UserRepository extends JpaRepository<Userentity, Integer> {
     Userentity findByUsername(String username);
 
 }
+*/

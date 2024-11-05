@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.controller;
 
 import com.ks.bestblog.dto.request.JoinRequest;
@@ -28,3 +29,4 @@ public class JoinController {
         return "ok";
     }
 }
+*/
