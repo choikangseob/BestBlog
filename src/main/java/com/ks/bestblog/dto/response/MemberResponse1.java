@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.dto.response;
 
 import com.ks.bestblog.dto.request.JoinMemberRequest1;
@@ -19,3 +20,4 @@ public record MemberResponse1(
                 .build();
     }
 }
+*/

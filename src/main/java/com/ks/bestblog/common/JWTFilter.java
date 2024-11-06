@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.common;
 
 import com.ks.bestblog.entity.Member1;
@@ -60,3 +61,4 @@ public class JWTFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
+*/

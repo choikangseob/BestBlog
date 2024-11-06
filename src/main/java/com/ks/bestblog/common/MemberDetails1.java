@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.common;
 
 import com.ks.bestblog.entity.Member1;
@@ -58,3 +59,4 @@ public class MemberDetails1 implements UserDetails {
         return true;
     }
 }
+*/

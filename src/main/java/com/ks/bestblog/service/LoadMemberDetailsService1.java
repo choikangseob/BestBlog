@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.service;
 
 import com.ks.bestblog.common.MemberDetails1;
@@ -29,3 +30,4 @@ public class LoadMemberDetailsService1 implements UserDetailsService {
         return memberDetails1.orElse(null);
     }
 }
+*/

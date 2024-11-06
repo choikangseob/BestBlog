@@ -1,5 +1,5 @@
 ### Send POST request with json body
-POST http://localhost:8080/member1
+POST http://localhost:8080/member2
 Content-Type: application/json
 
 {

@@ -1,8 +1,6 @@
 package com.ks.bestblog.config;
 
-import com.ks.bestblog.common.JWTFilter;
 import com.ks.bestblog.common.JWTUtil;
-import com.ks.bestblog.common.LoginFilter1;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,7 +11,6 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -55,15 +52,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/practise/example/one","/member","/menu", "/reservation","/reply"
                         ,"/store","/delivery","/customer","/emsnumber","/turnoncar"
-                        ,"/totalpeople","/phone","/test","/","/login","/join","/member1").permitAll()
+                        ,"/totalpeople","/phone","/test","/","/login","/join","/member1"
+                        ,"/member2").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
-
-        http
-                .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter1.class);
-        http
-                .addFilterAt(new LoginFilter1(authenticationManager(authenticationConfiguration), jwtUtil ), UsernamePasswordAuthenticationFilter.class);
 
         http
                 .sessionManagement((session) ->session

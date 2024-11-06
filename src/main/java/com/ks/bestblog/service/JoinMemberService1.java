@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.service;
 
 import com.ks.bestblog.dto.request.JoinMemberRequest1;
@@ -25,3 +26,4 @@ public class JoinMemberService1 {
         return MemberResponse1.of(savedMember);
     }
 }
+*/

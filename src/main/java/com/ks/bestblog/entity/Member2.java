@@ -1,8 +1,7 @@
-/*
 package com.ks.bestblog.entity;
 
 
-import com.ks.bestblog.dto.request.JoinMemberRequest1;
+import com.ks.bestblog.dto.request.JoinMemberRequest2;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +14,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Member1 {
+public class Member2 {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,16 +26,15 @@ public class Member1 {
 
     private String password;
 
-    public static Member1 from(JoinMemberRequest1 joinMemberRequest1) {
+    public static Member2 from(JoinMemberRequest2  joinMemberRequest2) {
 
+        return new Member2(joinMemberRequest2);
 
-        return new Member1(joinMemberRequest1);
     }
 
-    public Member1(JoinMemberRequest1 joinMemberRequest1) {
-        this.username = joinMemberRequest1.username();
-        this.email = joinMemberRequest1.email();
-        this.password = joinMemberRequest1.password();
+    public Member2(JoinMemberRequest2  joinMemberRequest2) {
+        this.username = joinMemberRequest2.username();
+        this.email = joinMemberRequest2.email();
+        this.password = joinMemberRequest2.password();
     }
 }
-*/
