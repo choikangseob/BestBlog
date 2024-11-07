@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.service;
 
 
@@ -25,3 +26,4 @@ public class JoinMemberService2 {
         return MemberResponse2.of(savedMember);
     }
 }
+*/

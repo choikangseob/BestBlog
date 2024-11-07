@@ -1,24 +1,25 @@
-/*
 package com.ks.bestblog.dto.response;
 
-import com.ks.bestblog.dto.request.JoinMemberRequest2;
-import com.ks.bestblog.entity.Member2;
+import com.ks.bestblog.entity.Member3;
 import lombok.Builder;
 
 @Builder
-public record MemberResponse2(
+public record MemberResponse3(
         int id,
         String username,
-        String Email,
+        String email,
         String password
 ) {
-    public static MemberResponse2 of(Member2 joinMember){
-        return MemberResponse2.builder()
+
+    public static MemberResponse3 of(Member3 joinMember){
+
+        return MemberResponse3.builder()
                 .id(joinMember.getId())
                 .username(joinMember.getUsername())
-                .Email(joinMember.getEmail())
+                .email(joinMember.getEmail())
                 .password(joinMember.getPassword())
                 .build();
+
+
     }
 }
-*/

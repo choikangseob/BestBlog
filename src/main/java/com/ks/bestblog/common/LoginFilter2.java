@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.common;
 
 
@@ -66,3 +67,4 @@ public class LoginFilter2 extends UsernamePasswordAuthenticationFilter {
             response.setStatus(401);
         }
 }
+*/

@@ -1,13 +1,9 @@
 package com.ks.bestblog.common;
 
-import com.ks.bestblog.entity.Member2;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -46,7 +42,7 @@ public class JWTFilter extends OncePerRequestFilter {
 
         String username = jwtUtil.getUsername(token);
         String email = jwtUtil.getEmail(token);
-
+/*
         Member2 member2 = new Member2();
         member2.setUsername(username);
         member2.setEmail(email);
@@ -57,6 +53,6 @@ public class JWTFilter extends OncePerRequestFilter {
 
         SecurityContextHolder.getContext().setAuthentication(authToken);
 
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(request, response);*/
     }
 }
