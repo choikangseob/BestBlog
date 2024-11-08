@@ -1,6 +1,8 @@
 package com.ks.bestblog.config;
 
+import com.ks.bestblog.common.JWTFilter;
 import com.ks.bestblog.common.JWTUtil;
+import com.ks.bestblog.common.LoginFilter3;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +13,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -58,6 +61,12 @@ public class SecurityConfig {
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
+
+
+        http
+                .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter3.class);
+        http
+                .addFilterAt(new LoginFilter3(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
         http
                 .sessionManagement((session) ->session
