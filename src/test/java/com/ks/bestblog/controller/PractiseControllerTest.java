@@ -1,11 +1,11 @@
 package com.ks.bestblog.controller;
 
-import com.ks.bestblog.dto.response.PractiseExampleResponse;
-import com.ks.bestblog.service.PractiseService;
+import com.ks.bestblog.controller.category.practice.PractiseController;
+import com.ks.bestblog.dto.response.practice.PractiseExampleResponse;
+import com.ks.bestblog.service.practice.PractiseService;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PractiseControllerTest {
 

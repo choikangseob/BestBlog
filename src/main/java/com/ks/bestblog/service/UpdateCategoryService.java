@@ -26,8 +26,10 @@ public class UpdateCategoryService {
         Optional<Category> byId = updateCategoryRepository.findById(updateCategoryRequest.id());
         Category categoryId = byId.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
 
+        categoryId.setDepth(updateCategoryRequest.depth());
+        categoryId.setTitle(updateCategoryRequest.title());
 
-        return UpdateCategoryResponse.of(null);
+        return UpdateCategoryResponse.of(categoryId);
 
     }
 }
