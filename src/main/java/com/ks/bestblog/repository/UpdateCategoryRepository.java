@@ -7,6 +7,8 @@ import java.util.Optional;
 
 public interface UpdateCategoryRepository extends JpaRepository<Category, Long> {
 
-    Optional<Category> findById(long id);
 
+
+    Optional<Category> findById(long id);
+    Optional<Category> findByIdAndCreateMemberId(long id , Long memberId );
 }
