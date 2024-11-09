@@ -1,4 +1,4 @@
-package com.ks.bestblog.controller.httpFiles;
+package com.ks.bestblog.controller;
 
 
 import com.ks.bestblog.dto.request.TurnonCarRequest;

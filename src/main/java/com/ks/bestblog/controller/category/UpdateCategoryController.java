@@ -1,4 +1,4 @@
-package com.ks.bestblog.controller.httpFiles;
+package com.ks.bestblog.controller.category;
 
 import com.ks.bestblog.dto.request.UpdateCategoryRequest;
 import com.ks.bestblog.dto.response.UpdateCategoryResponse;
