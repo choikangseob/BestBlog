@@ -2,6 +2,7 @@ package com.ks.bestblog.common.entity;
 
 
 import com.ks.bestblog.common.MemberDetails;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 
 
 @Getter
+@MappedSuperclass
 public class EssentialColumns {
 
     @CreatedDate
@@ -23,19 +25,22 @@ public class EssentialColumns {
 
     private long createMemberId;
 
-    private long updatedMemberId;
+    private long updateMemberId;
 
     @PrePersist
     public void perPersistMemberId() {
-        MemberDetails memberDetails = (MemberDetails) SecurityContextHolder.getContext().getAuthentication();
+        MemberDetails memberDetails = (MemberDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         this.createMemberId = memberDetails.getId();
-        this.updatedMemberId = memberDetails.getId();
+        this.updateMemberId = memberDetails.getId();
+        this.createDate = LocalDateTime.now();
+        this.updateDate = LocalDateTime.now();
     }
 
     @PreUpdate
     public void preUpdateUpdatedByUserNo() {
-        MemberDetails memberDetails = (MemberDetails)SecurityContextHolder.getContext().getAuthentication();
-        this.updatedMemberId = memberDetails.getId();
+        MemberDetails memberDetails = (MemberDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        this.updateMemberId = memberDetails.getId();
+        this.updateDate = LocalDateTime.now();
     }
 
 }

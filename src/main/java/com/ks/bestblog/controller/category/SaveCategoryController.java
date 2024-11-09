@@ -1,4 +1,4 @@
-package com.ks.bestblog.controller;
+package com.ks.bestblog.controller.category;
 
 
 import com.ks.bestblog.dto.request.SaveCategoryRequest;
