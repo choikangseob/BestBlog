@@ -22,4 +22,5 @@ public class JoinMemberController {
 
         return ResponseEntity.ok(joinMemberService.joinMember(joinMemberRequest));
     }
+
 }
