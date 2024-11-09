@@ -1,4 +1,3 @@
-/*
 package com.ks.bestblog.entity;
 
 
@@ -51,4 +50,3 @@ public class Member {
 
     }
 }
-*/

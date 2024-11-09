@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.common;
 
 import com.ks.bestblog.entity.Member3;
@@ -21,15 +22,7 @@ public class MemberDetails3 implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
-        Collection<GrantedAuthority> collection = new ArrayList<GrantedAuthority>();
-
-        collection.add(new GrantedAuthority() {
-            @Override
-            public String getAuthority() {
-                return member3.getEmail();
-            }
-        });
-        return collection;
+        return List.of();
     }
 
     @Override
@@ -62,3 +55,4 @@ public class MemberDetails3 implements UserDetails {
         return true;
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.common;
 
 import jakarta.servlet.FilterChain;
@@ -48,11 +49,7 @@ public class LoginFilter3 extends UsernamePasswordAuthenticationFilter {
 
         String username = memberDetails3.getUsername();
 
-        Collection<? extends GrantedAuthority> authorities = authResult.getAuthorities();
-        Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
-        GrantedAuthority auth = iterator.next();
-
-        String role = auth.getAuthority();
+        String role = "";
 
         String token = jwtUtil.createJwt(username,role,60*60*10L);
         response.addHeader("Authorization", "Bearer "+token);
@@ -65,3 +62,4 @@ public class LoginFilter3 extends UsernamePasswordAuthenticationFilter {
         System.out.println("로그인 실패");
     }
 }
+*/

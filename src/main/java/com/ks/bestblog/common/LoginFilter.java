@@ -1,4 +1,3 @@
-/*
 package com.ks.bestblog.common;
 
 import jakarta.servlet.FilterChain;
@@ -44,11 +43,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         String username = memberDetails.getUsername();
 
-        Collection<? extends GrantedAuthority> authorities = authResult.getAuthorities();
-        Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
-        GrantedAuthority auth = iterator.next();
-
-        String role = auth.getAuthority();
+        String role = "";
 
         String token = jwtUtil.createJwt(username, role, 60*60*10L);
 
@@ -63,4 +58,3 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     }
 }
-*/

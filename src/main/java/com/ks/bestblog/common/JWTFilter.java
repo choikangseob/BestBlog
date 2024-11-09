@@ -1,6 +1,6 @@
 package com.ks.bestblog.common;
 
-import com.ks.bestblog.entity.Member3;
+import com.ks.bestblog.entity.Member;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,25 +36,19 @@ public class JWTFilter extends OncePerRequestFilter {
 
         String token = authorization.split(" ")[1];
 
-        if(jwtUtil.isExpired(token)){
 
-            System.out.println("token expired");
-            filterChain.doFilter(request, response);
-
-            return;
-        }
 
         String username = jwtUtil.getUsername(token);
-        String email = jwtUtil.getEmail(token);
+        String email = jwtUtil.getUsername(token);
 
 
-        Member3 member3 = new Member3();
-        member3.setUsername(username);
-        member3.setEmail(email);
+        Member member = new Member();
+        member.setUsername(username);
+        member.setEmail(email);
 
-        MemberDetails3 memberDetails3 = new MemberDetails3(member3);
+        MemberDetails memberDetails = new MemberDetails(member);
 
-        Authentication authToken = new UsernamePasswordAuthenticationToken(memberDetails3, null, memberDetails3.getAuthorities());
+        Authentication authToken = new UsernamePasswordAuthenticationToken(memberDetails, null, memberDetails.getAuthorities());
 
         SecurityContextHolder.getContext().setAuthentication(authToken);
 

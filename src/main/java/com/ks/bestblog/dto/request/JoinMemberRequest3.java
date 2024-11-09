@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.dto.request;
 
 public record JoinMemberRequest3(
@@ -7,3 +8,4 @@ public record JoinMemberRequest3(
         String password
 ) {
 }
+*/

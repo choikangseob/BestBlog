@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.entity;
 
 
@@ -38,3 +39,4 @@ public class Member3 {
         this.password = joinMemberRequest3.password();
     }
 }
+*/

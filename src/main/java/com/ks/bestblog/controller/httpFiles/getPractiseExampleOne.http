@@ -1,2 +1,10 @@
 GET http://localhost:8080/practise/example/one
 Accept: application/json
+Authorization: {{authToken}}
+
+
+> {%
+
+    client.log(client.global.get("authToken"));
+%}
+###

@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.controller;
 
 
@@ -26,3 +27,4 @@ public class JoinMemberController3 {
     }
 
 }
+*/

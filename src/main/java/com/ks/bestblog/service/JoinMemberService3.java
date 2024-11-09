@@ -1,3 +1,4 @@
+/*
 package com.ks.bestblog.service;
 
 
@@ -27,3 +28,4 @@ public class JoinMemberService3 {
     }
 
 }
+*/
