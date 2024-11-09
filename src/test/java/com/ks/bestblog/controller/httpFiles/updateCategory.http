@@ -1,0 +1,11 @@
+### POST request to example server
+POST http://localhost:8080/updateCategory
+Content-Type: application/json
+Authorization: {{authToken}}
+
+{
+  "id": 1,
+  "depth": 0,
+  "title": "항목수정"
+}
+

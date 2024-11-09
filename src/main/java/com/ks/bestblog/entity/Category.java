@@ -39,4 +39,5 @@ public class Category extends EssentialColumns {
 
         this.title = saveCategoryRequest.title();
     }
+
 }

@@ -5,7 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface SaveCategoryRepository extends JpaRepository<Category, Long> {
+public interface UpdateCategoryRepository extends JpaRepository<Category, Long> {
 
+    Optional<Category> findById(long id);
 
 }
