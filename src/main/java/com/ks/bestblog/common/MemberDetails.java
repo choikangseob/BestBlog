@@ -20,6 +20,9 @@ public class MemberDetails implements UserDetails {
         return List.of();
     }
 
+    public Long getId(){
+       return member.getId();
+    }
     @Override
     public String getPassword() {
         return member.getPassword();

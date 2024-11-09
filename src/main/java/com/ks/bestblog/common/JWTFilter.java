@@ -5,6 +5,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Builder;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,6 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+@Builder
 public class JWTFilter extends OncePerRequestFilter {
 
     private final JWTUtil jwtUtil;
@@ -36,15 +38,11 @@ public class JWTFilter extends OncePerRequestFilter {
 
         String token = authorization.split(" ")[1];
 
-
-
-        String username = jwtUtil.getUsername(token);
-        String email = jwtUtil.getUsername(token);
-
-
-        Member member = new Member();
-        member.setUsername(username);
-        member.setEmail(email);
+        Member member = Member.builder()
+                .username(jwtUtil.getUsername(token))
+                .email(jwtUtil.getEmail(token))
+                .id(jwtUtil.getId(token))
+                .build();
 
         MemberDetails memberDetails = new MemberDetails(member);
 
