@@ -38,6 +38,8 @@ public class Category extends EssentialColumns {
         this.depth = saveCategoryRequest.depth();
 
         this.title = saveCategoryRequest.title();
+
+        this.parentId = saveCategoryRequest.parentId();
     }
 
 }

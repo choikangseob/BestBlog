@@ -5,8 +5,13 @@
 
 <mapper namespace="com.ks.bestblog.repository.CategoryMybatisRepository">
 
+        <select id="findById" resultType="com.ks.bestblog.dto.response.CategoryResponse">
+            select *
+            from category
+            where id = ${id};
 
 
+        </select>
 
 
 </mapper>

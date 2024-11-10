@@ -4,6 +4,8 @@ public record SaveCategoryRequest(
 
         long depth,
 
+        long parentId,
+
         String title
 
 ) {

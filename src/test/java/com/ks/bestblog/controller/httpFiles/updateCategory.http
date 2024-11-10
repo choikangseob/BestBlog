@@ -4,7 +4,7 @@ Content-Type: application/json
 Authorization: {{authToken}}
 
 {
-  "id": 1,
+  "id": 4,
   "depth": 0,
   "title": "항목수정"
 }

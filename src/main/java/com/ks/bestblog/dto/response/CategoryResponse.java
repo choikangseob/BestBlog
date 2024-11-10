@@ -7,6 +7,8 @@ import lombok.Builder;
 public record CategoryResponse(
         long depth,
 
+        long parentId,
+
         String title
 ) {
 
@@ -14,6 +16,7 @@ public record CategoryResponse(
 
         return CategoryResponse.builder()
                 .depth(savedCategory.getDepth())
+                .parentId(savedCategory.getParentId())
                 .title(savedCategory.getTitle())
                 .build();
     }
