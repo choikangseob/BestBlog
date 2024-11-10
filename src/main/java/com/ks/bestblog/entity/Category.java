@@ -35,6 +35,8 @@ public class Category extends EssentialColumns {
 
     public Category(SaveCategoryRequest saveCategoryRequest) {
 
+
+
         this.depth = saveCategoryRequest.depth();
 
         this.title = saveCategoryRequest.title();
