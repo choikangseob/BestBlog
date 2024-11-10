@@ -10,45 +10,41 @@
 
             WITH RECURSIVE category_tree AS (
                 -- 최상위 노드(depth = 0)를 선택하고 경로 초기화
-                SELECT
-                    id,
-                    parent_id,
-                    title,
-                    depth,
-                    create_date,
-                    update_date,
-                    create_member_id,
-                    update_member_id,
-                    CAST(id AS CHAR(255)) AS path -- 각 노드의 경로 추적용
-                FROM
-                    best_blog.category
-                WHERE
-                    depth = 0 and create_member_id = ${memberId}
+                SELECT id,
+                       parent_id,
+                       title,
+                       depth,
+                       create_date,
+                       update_date,
+                       create_member_id,
+                       update_member_id,
+                       CAST(id AS CHAR(255)) AS path -- 각 노드의 경로 추적용
+                FROM best_blog.category
+                WHERE depth = 0
+                  and create_member_id = ${memberId}
 
                 UNION ALL
 
                 -- 재귀적으로 하위 노드를 선택하고 경로 업데이트
-                SELECT
-                    c.id,
-                    c.parent_id,
-                    c.title,
-                    c.depth,
-                    c.create_date,
-                    c.update_date,
-                    c.create_member_id,
-                    c.update_member_id,
-                    CONCAT(ct.path, '-', c.id) AS path
-                FROM
-                    best_blog.category AS c
-                        INNER JOIN
-                    category_tree AS ct ON c.parent_id = ct.id
-            )
-            SELECT
-                *
-            FROM
-                category_tree
-            ORDER BY
-                path;
+                SELECT c.id,
+                       c.parent_id,
+                       c.title,
+                       c.depth,
+                       c.create_date,
+                       c.update_date,
+                       c.create_member_id,
+                       c.update_member_id,
+                       CONCAT(ct.path, '-', c.id) AS path
+                FROM best_blog.category AS c
+                         INNER JOIN
+                     category_tree AS ct ON c.parent_id = ct.id)
+            SELECT id,
+                   depth,
+                   parent_id,
+                   title
+            FROM category_tree
+            ORDER BY path;
+
 
         </select>
 
