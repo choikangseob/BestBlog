@@ -3,7 +3,7 @@ package com.ks.bestblog.service;
 import com.ks.bestblog.dto.request.JoinMemberRequest;
 import com.ks.bestblog.dto.response.MemberResponse;
 import com.ks.bestblog.entity.Member;
-import com.ks.bestblog.repository.MemberRepository;
+import com.ks.bestblog.repository.MemberJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class JoinMemberService {
 
-    private final MemberRepository memberRepository;
+    private final MemberJPARepository memberJPARepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
@@ -24,7 +24,7 @@ public class JoinMemberService {
                 bCryptPasswordEncoder.encode(joinMember.getPassword())
         );
 
-        Member savedMember = memberRepository.save(joinMember);
+        Member savedMember = memberJPARepository.save(joinMember);
 
 
         return MemberResponse.of(savedMember);

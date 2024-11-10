@@ -4,7 +4,7 @@ import com.ks.bestblog.common.MemberDetails;
 import com.ks.bestblog.dto.request.DeleteCategoryRequest;
 import com.ks.bestblog.dto.response.DeleteCategoryResponse;
 import com.ks.bestblog.entity.Category;
-import com.ks.bestblog.repository.DeleteCategoryRepository;
+import com.ks.bestblog.repository.DeleteCategoryJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +14,17 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DeleteCategoryService {
 
-    private final DeleteCategoryRepository deleteCategoryRepository;
+    private final DeleteCategoryJPARepository deleteCategoryJPARepository;
 
 
 
     public DeleteCategoryResponse deleteCategory(DeleteCategoryRequest deleteCategoryRequest, MemberDetails member) {
 
-        Optional<Category> categoryOptional = deleteCategoryRepository.findByIdAndCreateMemberId(deleteCategoryRequest.id(), member.getId());
+        Optional<Category> categoryOptional = deleteCategoryJPARepository.findByIdAndCreateMemberId(deleteCategoryRequest.id(), member.getId());
 
         Category categoryTobeDeleted = categoryOptional.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
 
-        deleteCategoryRepository.delete(categoryTobeDeleted);
+        deleteCategoryJPARepository.delete(categoryTobeDeleted);
 
         return DeleteCategoryResponse.of(categoryTobeDeleted);
     }

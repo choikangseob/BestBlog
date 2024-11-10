@@ -2,7 +2,7 @@ package com.ks.bestblog.controller.category;
 
 
 import com.ks.bestblog.dto.request.SaveCategoryRequest;
-import com.ks.bestblog.dto.response.ResponseCategory;
+import com.ks.bestblog.dto.response.CategoryResponse;
 import com.ks.bestblog.service.SaveCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class SaveCategoryController {
     private final SaveCategoryService saveCategoryService;
 
     @PostMapping("/category")
-    public ResponseEntity<ResponseCategory> saveCategory(
+    public ResponseEntity<CategoryResponse> saveCategory(
             @RequestBody SaveCategoryRequest saveCategoryRequest
     ) {
 

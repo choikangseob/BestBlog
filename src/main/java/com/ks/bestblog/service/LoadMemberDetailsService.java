@@ -1,9 +1,8 @@
 package com.ks.bestblog.service;
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.dto.request.JoinMemberRequest;
 import com.ks.bestblog.entity.Member;
-import com.ks.bestblog.repository.MemberRepository;
+import com.ks.bestblog.repository.MemberJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,12 +15,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class LoadMemberDetailsService implements UserDetailsService {
 
-    private final MemberRepository memberRepository;
+    private final MemberJPARepository memberJPARepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-            Optional<Member> member =memberRepository.findByEmail(email);
+            Optional<Member> member = memberJPARepository.findByEmail(email);
 
             Optional<MemberDetails> memberDetails = member.map(MemberDetails::new);
 

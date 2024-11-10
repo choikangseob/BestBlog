@@ -1,9 +1,9 @@
 package com.ks.bestblog.service;
 
 import com.ks.bestblog.dto.request.SaveCategoryRequest;
-import com.ks.bestblog.dto.response.ResponseCategory;
+import com.ks.bestblog.dto.response.CategoryResponse;
 import com.ks.bestblog.entity.Category;
-import com.ks.bestblog.repository.SaveCategoryRepository;
+import com.ks.bestblog.repository.SaveCategoryJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SaveCategoryService {
 
-    public final SaveCategoryRepository saveCategoryRepository;
+    public final SaveCategoryJPARepository saveCategoryJPARepository;
 
-    public ResponseCategory saveCategory(SaveCategoryRequest saveCategoryRequest){
+    public CategoryResponse saveCategory(SaveCategoryRequest saveCategoryRequest){
 
         Category category = Category.from(saveCategoryRequest);
-        Category savedCategory = saveCategoryRepository.save(category);
+        Category savedCategory = saveCategoryJPARepository.save(category);
 
-        return ResponseCategory.of(savedCategory);
+        return CategoryResponse.of(savedCategory);
     }
 }

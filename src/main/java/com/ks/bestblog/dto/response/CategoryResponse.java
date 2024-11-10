@@ -4,15 +4,15 @@ import com.ks.bestblog.entity.Category;
 import lombok.Builder;
 
 @Builder
-public record ResponseCategory(
+public record CategoryResponse(
         long depth,
 
         String title
 ) {
 
-    public static ResponseCategory of(Category savedCategory) {
+    public static CategoryResponse of(Category savedCategory) {
 
-        return ResponseCategory.builder()
+        return CategoryResponse.builder()
                 .depth(savedCategory.getDepth())
                 .title(savedCategory.getTitle())
                 .build();
