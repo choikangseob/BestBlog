@@ -20,12 +20,12 @@ public class DeleteCategoryService {
 
     public DeleteCategoryResponse deleteCategory(DeleteCategoryRequest deleteCategoryRequest, MemberDetails member) {
 
-        Optional<Category> deleteByCreateMemberId = deleteCategoryRepository.findByIdAndCreateMemberId(deleteCategoryRequest.id(), member.getId());
+        Optional<Category> categoryOptional = deleteCategoryRepository.findByIdAndCreateMemberId(deleteCategoryRequest.id(), member.getId());
 
-        Category categoryDelete = deleteByCreateMemberId.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
+        Category categoryTobeDeleted = categoryOptional.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
 
-        deleteCategoryRepository.delete(categoryDelete);
+        deleteCategoryRepository.delete(categoryTobeDeleted);
 
-        return DeleteCategoryResponse.of(categoryDelete);
+        return DeleteCategoryResponse.of(categoryTobeDeleted);
     }
 }

@@ -22,15 +22,15 @@ public class UpdateCategoryService {
 
     public UpdateCategoryResponse updateCategory(UpdateCategoryRequest updateCategoryRequest, MemberDetails member) {
 
-        Optional<Category> byId = updateCategoryRepository.findById(updateCategoryRequest.id());
-        Category categoryId = byId.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
 
-        Optional<Category> correctId = updateCategoryRepository.findByIdAndCreateMemberId(updateCategoryRequest.id(),member.getId());
+        Optional<Category> categoryOptional = updateCategoryRepository.findByIdAndCreateMemberId(updateCategoryRequest.id(),member.getId());
+        Category category = categoryOptional.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
 
-        categoryId.setDepth(updateCategoryRequest.depth());
-        categoryId.setTitle(updateCategoryRequest.title());
 
-        return UpdateCategoryResponse.of(categoryId);
+        category.setDepth(updateCategoryRequest.depth());
+        category.setTitle(updateCategoryRequest.title());
+
+        return UpdateCategoryResponse.of(category);
 
     }
 }
