@@ -1,5 +1,6 @@
 package com.ks.bestblog.service;
 
+import com.ks.bestblog.common.MemberDetails;
 import com.ks.bestblog.dto.request.DeleteCategoryRequest;
 import com.ks.bestblog.dto.response.DeleteCategoryResponse;
 import com.ks.bestblog.entity.Category;
@@ -17,10 +18,12 @@ public class DeleteCategoryService {
 
 
 
-    public DeleteCategoryResponse deleteCategory(DeleteCategoryRequest deleteCategoryRequest) {
-        Optional<Category> deleteById = deleteCategoryRepository.findById(deleteCategoryRequest.id());
+    public DeleteCategoryResponse deleteCategory(DeleteCategoryRequest deleteCategoryRequest, MemberDetails member) {
 
-        Category categoryDelete = deleteById.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
+        Optional<Category> deleteByCreateMemberId = deleteCategoryRepository.findByIdAndCreateMemberId(deleteCategoryRequest.id(), member.getId());
+
+        Category categoryDelete = deleteByCreateMemberId.orElseThrow(() -> new RuntimeException("결과값이 없습니다"));
+
         deleteCategoryRepository.delete(categoryDelete);
 
         return DeleteCategoryResponse.of(categoryDelete);
