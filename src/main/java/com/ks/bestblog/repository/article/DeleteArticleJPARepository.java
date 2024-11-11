@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface DeleteArticleRepository extends JpaRepository<Article, Long> {
+public interface DeleteArticleJPARepository extends JpaRepository<Article, Long> {
 
 Optional<Article> findByIdAndCreateMemberId(long id, long createMemberId);
 

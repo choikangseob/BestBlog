@@ -4,7 +4,7 @@ package com.ks.bestblog.service.article;
 import com.ks.bestblog.dto.request.article.SaveArticleRequest;
 import com.ks.bestblog.dto.response.article.ArticleResponse;
 import com.ks.bestblog.entity.Article;
-import com.ks.bestblog.repository.article.SaveArticleRepository;
+import com.ks.bestblog.repository.article.SaveArticleJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SaveArticleService {
 
-    private final SaveArticleRepository saveArticleRepository;
+    private final SaveArticleJPARepository saveArticleJPARepository;
 
     public ArticleResponse saveArticle(SaveArticleRequest saveArticleRequest){
 
         Article saveArticle = Article.from(saveArticleRequest);
-        Article savedArticle = saveArticleRepository.save(saveArticle);
+        Article savedArticle = saveArticleJPARepository.save(saveArticle);
 
         return ArticleResponse.of(savedArticle);
     }

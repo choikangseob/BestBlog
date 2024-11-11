@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface UpdateArticleRepository extends JpaRepository<Article, Long> {
+public interface UpdateArticleJPARepository extends JpaRepository<Article, Long> {
 
     Optional<Article> findByIdAndCreateMemberId(long articleId, long memberId);
 }

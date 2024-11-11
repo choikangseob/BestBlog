@@ -10,4 +10,6 @@ public interface CategoryMybatisRepository {
 
     List<CategoryResponse> findAllByMemberId(Long memberId);
 
+
+
 }

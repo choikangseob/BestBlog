@@ -3,7 +3,7 @@ package com.ks.bestblog.controller.article;
 
 import com.ks.bestblog.common.MemberDetails;
 import com.ks.bestblog.dto.request.article.DeleteArticleRequest;
-import com.ks.bestblog.dto.response.DeleteArticleResponse;
+import com.ks.bestblog.dto.response.article.DeleteArticleResponse;
 import com.ks.bestblog.service.article.DeleteArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

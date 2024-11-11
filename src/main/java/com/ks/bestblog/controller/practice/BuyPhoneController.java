@@ -1,4 +1,4 @@
-package com.ks.bestblog.controller.category.practice;
+package com.ks.bestblog.controller.practice;
 
 import com.ks.bestblog.dto.request.practice.BuyPhoneRequest;
 import com.ks.bestblog.dto.response.practice.BuyPhoneResponse;

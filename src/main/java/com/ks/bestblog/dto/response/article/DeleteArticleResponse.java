@@ -1,6 +1,5 @@
-package com.ks.bestblog.dto.response;
+package com.ks.bestblog.dto.response.article;
 
-import com.ks.bestblog.dto.request.article.DeleteArticleRequest;
 import com.ks.bestblog.entity.Article;
 import lombok.Builder;
 

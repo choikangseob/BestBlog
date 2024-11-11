@@ -1,7 +1,7 @@
 package com.ks.bestblog.controller;
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.controller.category.practice.PractiseController;
+import com.ks.bestblog.controller.practice.PractiseController;
 import com.ks.bestblog.dto.response.practice.PractiseExampleResponse;
 import com.ks.bestblog.entity.Member;
 import com.ks.bestblog.service.practice.PractiseService;
