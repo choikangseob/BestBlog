@@ -1,9 +1,9 @@
-package com.ks.bestblog.service;
+package com.ks.bestblog.service.category;
 
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.dto.response.CategoryResponse;
-import com.ks.bestblog.repository.CategoryMybatisRepository;
+import com.ks.bestblog.dto.response.category.CategoryResponse;
+import com.ks.bestblog.repository.category.CategoryMybatisRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

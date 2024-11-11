@@ -1,0 +1,9 @@
+### POST request to example server
+POST http://localhost:8080/deleteArticle
+Content-Type: application/json
+Authorization: {{authToken}}
+
+{
+  "id": 1
+}
+

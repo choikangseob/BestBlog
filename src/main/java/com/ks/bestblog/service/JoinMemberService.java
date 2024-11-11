@@ -1,7 +1,7 @@
 package com.ks.bestblog.service;
 
-import com.ks.bestblog.dto.request.JoinMemberRequest;
-import com.ks.bestblog.dto.response.MemberResponse;
+import com.ks.bestblog.dto.request.category.JoinMemberRequest;
+import com.ks.bestblog.dto.response.category.MemberResponse;
 import com.ks.bestblog.entity.Member;
 import com.ks.bestblog.repository.MemberJPARepository;
 import lombok.RequiredArgsConstructor;

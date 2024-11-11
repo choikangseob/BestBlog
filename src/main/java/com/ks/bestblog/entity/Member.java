@@ -1,7 +1,7 @@
 package com.ks.bestblog.entity;
 
 
-import com.ks.bestblog.dto.request.JoinMemberRequest;
+import com.ks.bestblog.dto.request.category.JoinMemberRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -1,0 +1,12 @@
+### POST request to example server
+POST http://localhost:8080/updateArticle
+Content-Type: application/json
+Authorization: {{authToken}}
+
+{
+  "id": 5,
+  "title": "취미",
+  "content": "상상 그 이상의 재미 코딩!",
+  "categoryId": 4
+}
+

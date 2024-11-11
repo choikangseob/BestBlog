@@ -1,4 +1,4 @@
-package com.ks.bestblog.dto.response;
+package com.ks.bestblog.dto.response.category;
 
 import com.ks.bestblog.entity.Category;
 import lombok.Builder;

@@ -1,7 +1,7 @@
-package com.ks.bestblog.controller;
+package com.ks.bestblog.controller.category;
 
-import com.ks.bestblog.dto.request.JoinMemberRequest;
-import com.ks.bestblog.dto.response.MemberResponse;
+import com.ks.bestblog.dto.request.category.JoinMemberRequest;
+import com.ks.bestblog.dto.response.category.MemberResponse;
 import com.ks.bestblog.service.JoinMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

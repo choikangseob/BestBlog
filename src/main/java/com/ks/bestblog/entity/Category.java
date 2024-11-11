@@ -2,7 +2,7 @@ package com.ks.bestblog.entity;
 
 
 import com.ks.bestblog.common.entity.EssentialColumns;
-import com.ks.bestblog.dto.request.SaveCategoryRequest;
+import com.ks.bestblog.dto.request.category.SaveCategoryRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

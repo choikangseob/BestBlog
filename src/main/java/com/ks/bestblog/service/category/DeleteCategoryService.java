@@ -1,10 +1,10 @@
-package com.ks.bestblog.service;
+package com.ks.bestblog.service.category;
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.dto.request.DeleteCategoryRequest;
-import com.ks.bestblog.dto.response.DeleteCategoryResponse;
+import com.ks.bestblog.dto.request.category.DeleteCategoryRequest;
+import com.ks.bestblog.dto.response.category.DeleteCategoryResponse;
 import com.ks.bestblog.entity.Category;
-import com.ks.bestblog.repository.DeleteCategoryJPARepository;
+import com.ks.bestblog.repository.category.DeleteCategoryJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

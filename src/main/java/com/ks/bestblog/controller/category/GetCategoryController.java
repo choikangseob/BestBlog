@@ -1,14 +1,13 @@
-package com.ks.bestblog.controller;
+package com.ks.bestblog.controller.category;
 
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.dto.response.CategoryResponse;
-import com.ks.bestblog.service.GetCategoryService;
+import com.ks.bestblog.dto.response.category.CategoryResponse;
+import com.ks.bestblog.service.category.GetCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

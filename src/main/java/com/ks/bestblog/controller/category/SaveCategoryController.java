@@ -1,9 +1,9 @@
 package com.ks.bestblog.controller.category;
 
 
-import com.ks.bestblog.dto.request.SaveCategoryRequest;
-import com.ks.bestblog.dto.response.CategoryResponse;
-import com.ks.bestblog.service.SaveCategoryService;
+import com.ks.bestblog.dto.request.category.SaveCategoryRequest;
+import com.ks.bestblog.dto.response.category.CategoryResponse;
+import com.ks.bestblog.service.category.SaveCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

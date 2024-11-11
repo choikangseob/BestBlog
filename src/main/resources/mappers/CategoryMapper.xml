@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ks.bestblog.repository.CategoryMybatisRepository">
+<mapper namespace="com.ks.bestblog.repository.category.CategoryMybatisRepository">
 
 
-        <select id="findAllByMemberId" resultType="com.ks.bestblog.dto.response.CategoryResponse">
+        <select id="findAllByMemberId" resultType="com.ks.bestblog.dto.response.category.CategoryResponse">
 
             WITH RECURSIVE category_tree AS (
                 -- 최상위 노드(depth = 0)를 선택하고 경로 초기화

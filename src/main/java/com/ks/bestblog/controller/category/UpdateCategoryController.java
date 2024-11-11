@@ -1,9 +1,9 @@
 package com.ks.bestblog.controller.category;
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.dto.request.UpdateCategoryRequest;
-import com.ks.bestblog.dto.response.UpdateCategoryResponse;
-import com.ks.bestblog.service.UpdateCategoryService;
+import com.ks.bestblog.dto.request.category.UpdateCategoryRequest;
+import com.ks.bestblog.dto.response.category.UpdateCategoryResponse;
+import com.ks.bestblog.service.category.UpdateCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

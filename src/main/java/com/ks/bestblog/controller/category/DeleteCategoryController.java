@@ -1,10 +1,10 @@
-package com.ks.bestblog.controller;
+package com.ks.bestblog.controller.category;
 
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.dto.request.DeleteCategoryRequest;
-import com.ks.bestblog.dto.response.DeleteCategoryResponse;
-import com.ks.bestblog.service.DeleteCategoryService;
+import com.ks.bestblog.dto.request.category.DeleteCategoryRequest;
+import com.ks.bestblog.dto.response.category.DeleteCategoryResponse;
+import com.ks.bestblog.service.category.DeleteCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

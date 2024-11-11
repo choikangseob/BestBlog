@@ -1,12 +1,11 @@
-package com.ks.bestblog.service;
+package com.ks.bestblog.service.category;
 
 import com.ks.bestblog.common.MemberDetails;
-import com.ks.bestblog.dto.request.UpdateCategoryRequest;
-import com.ks.bestblog.dto.response.CategoryResponse;
-import com.ks.bestblog.dto.response.UpdateCategoryResponse;
+import com.ks.bestblog.dto.request.category.UpdateCategoryRequest;
+import com.ks.bestblog.dto.response.category.UpdateCategoryResponse;
 import com.ks.bestblog.entity.Category;
-import com.ks.bestblog.repository.CategoryMybatisRepository;
-import com.ks.bestblog.repository.UpdateCategoryJPARepository;
+import com.ks.bestblog.repository.category.CategoryMybatisRepository;
+import com.ks.bestblog.repository.category.UpdateCategoryJPARepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
