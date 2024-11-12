@@ -54,8 +54,9 @@ public class SecurityConfig {
         
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/member","/error","/category","/updateCategory","/deleteCategory"
-                        ,"/categories","article","/updateArticle","/articles","/articles/{CreateMemberId}").permitAll()
+                        .requestMatchers("/member","/error","/saveCategory","/updateCategory","/deleteCategory"
+                        ,"/categories","/saveArticle","/updateArticle","/articles","/articles/{CreateMemberId}"
+                        ,"/viewArticle/{Id}").permitAll()
                         .anyRequest().authenticated()
                 );
 

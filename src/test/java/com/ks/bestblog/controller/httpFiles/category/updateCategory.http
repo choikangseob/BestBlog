@@ -6,6 +6,6 @@ Authorization: {{authToken}}
 {
   "id": 4,
   "depth": 0,
-  "title": "항목수정"
+  "title": "항목3"
 }
 

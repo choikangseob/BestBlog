@@ -21,4 +21,12 @@
 
         </select>
 
+        <select id="findByIdAndTitle" resultType="com.ks.bestblog.dto.response.article.ArticleResponse">
+
+            select *
+                    from article
+                    where id = ${id}
+
+        </select>
+
 </mapper>

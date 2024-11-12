@@ -1,11 +1,9 @@
 ### POST request to example server
-POST http://localhost:8080/category
+POST http://localhost:8080/deleteCategory
 Content-Type: application/json
 Authorization: {{authToken}}
 
 {
-  "depth": 2,
-  "title": "항목22",
-  "parentId": 31
+  "id": 42
 }
 

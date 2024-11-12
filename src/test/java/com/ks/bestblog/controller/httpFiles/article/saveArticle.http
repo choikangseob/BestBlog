@@ -1,5 +1,5 @@
 ### POST request to example server
-POST http://localhost:8080/article
+POST http://localhost:8080/saveArticle
 Content-Type: application/json
 Authorization: {{authToken}}
 

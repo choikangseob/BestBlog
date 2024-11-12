@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ks.bestblog.repository.article.ViewArticleMybatisRepository">
+
+
+
+        <select id="findByIdAndTitle" resultType="com.ks.bestblog.dto.response.article.ArticleResponse">
+
+            select *
+                    from article
+                    where id = ${articleId}
+
+        </select>
+
+</mapper>
