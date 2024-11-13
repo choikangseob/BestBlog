@@ -1,0 +1,10 @@
+### POST request to example server
+POST http://localhost:8080/like
+Content-Type: application/json
+Authorization: {{authToken}}
+
+{
+  "articleId": 5,
+  "likes": 1,
+  "createMemberId": 12
+}
