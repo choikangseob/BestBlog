@@ -34,7 +34,10 @@ public class Likeunlike extends EssentialColumns {
     }
 
     public Likeunlike(SaveLikeRequest saveLikeRequest) {
+        this.articleId = saveLikeRequest.articleId();
         this.likes = saveLikeRequest.likes();
+        this.createMemberId = saveLikeRequest.createMemberId();
+
 
     }
 

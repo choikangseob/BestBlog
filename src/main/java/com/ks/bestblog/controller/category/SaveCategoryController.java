@@ -16,7 +16,7 @@ public class SaveCategoryController {
 
     private final SaveCategoryService saveCategoryService;
 
-    @PostMapping("/category")
+    @PostMapping("/saveCategory")
     public ResponseEntity<CategoryResponse> saveCategory(
             @RequestBody SaveCategoryRequest saveCategoryRequest
     ) {

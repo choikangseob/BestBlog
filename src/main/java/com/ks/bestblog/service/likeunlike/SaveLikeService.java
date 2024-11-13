@@ -18,7 +18,7 @@ public class SaveLikeService {
 
     public LikeResponse saveLike(SaveLikeRequest saveLikeRequest){
 
-        Likeunlike outofsavedLike = null;
+        Likeunlike outOfSavedLike = null;
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated() || authentication.getPrincipal().equals("anonymousUser")) {
@@ -31,9 +31,9 @@ public class SaveLikeService {
 
             Likeunlike savedLike = saveLikeUnlikeJPARepository.save(saveLike);
 
-            outofsavedLike = savedLike;
+            outOfSavedLike = savedLike;
         }
 
-        return LikeResponse.of(outofsavedLike);
+        return LikeResponse.of(outOfSavedLike);
     }
 }

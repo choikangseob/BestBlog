@@ -16,7 +16,7 @@ public class SaveArticleController {
 
     private final SaveArticleService saveArticleService;
 
-    @PostMapping("/article")
+    @PostMapping("/saveArticle")
     public ResponseEntity<ArticleResponse> saveArticle(
             @RequestBody SaveArticleRequest saveArticleRequest
 
