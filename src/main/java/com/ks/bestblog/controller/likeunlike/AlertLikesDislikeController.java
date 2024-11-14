@@ -1,9 +1,9 @@
 package com.ks.bestblog.controller.likeunlike;
 
 
-import com.ks.bestblog.dto.request.likeunlike.SaveLikeRequest;
-import com.ks.bestblog.dto.response.likeunlike.LikeResponse;
-import com.ks.bestblog.service.likeunlike.SaveLikeService;
+import com.ks.bestblog.dto.request.likeunlike.SaveLikesDislikeRequest;
+import com.ks.bestblog.dto.response.likeunlike.LikesDislikeResponse;
+import com.ks.bestblog.service.likeunlike.AlertLikeDislikeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class SaveLikeController {
+public class AlertLikesDislikeController {
 
-    private final SaveLikeService saveLikeService;
+    private final AlertLikeDislikeService alertLikeDislikeService;
 
-    @PostMapping("/like")
-    public ResponseEntity<LikeResponse> saveLikeUnlike(
+    @PostMapping("/noLoginlikesDislike")
+    public ResponseEntity<LikesDislikeResponse> saveLikeUnlike(
 
-            @RequestBody SaveLikeRequest saveLikeRequest
+            @RequestBody SaveLikesDislikeRequest saveLikesDislikeRequest
     ){
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return ResponseEntity.ok(saveLikeService.saveLike(saveLikeRequest,authentication));
+        return ResponseEntity.ok(alertLikeDislikeService.saveLike(saveLikesDislikeRequest,authentication));
     }
 }
