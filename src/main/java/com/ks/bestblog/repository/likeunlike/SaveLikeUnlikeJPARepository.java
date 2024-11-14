@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface SaveLikeUnlikeJPARepository extends JpaRepository<Likeunlike, Long> {
 
- Optional<Likeunlike> findByCreateMemberId(Long createMemberId);
+
 
 }
