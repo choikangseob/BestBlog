@@ -4,7 +4,7 @@ package com.ks.bestblog.service.likeunlike;
 import com.ks.bestblog.dto.request.likeunlike.SaveLikesDislikeRequest;
 import com.ks.bestblog.dto.response.likeunlike.LikesDislikeResponse;
 import com.ks.bestblog.entity.Likesdislike;
-import com.ks.bestblog.repository.likeunlike.SaveLikeUnlikeJPARepository;
+import com.ks.bestblog.repository.likeunlike.SaveLikesDislikeJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AlertLikeDislikeService {
 
-    private final SaveLikeUnlikeJPARepository saveLikeUnlikeJPARepository;
+    private final SaveLikesDislikeJPARepository saveLikesDislikeJPARepository;
 
     public LikesDislikeResponse saveLike(SaveLikesDislikeRequest saveLikesDislikeRequest, Authentication authentication){
 
@@ -28,7 +28,7 @@ public class AlertLikeDislikeService {
         }else{
             Likesdislike saveLike= Likesdislike.from(saveLikesDislikeRequest);
 
-            Likesdislike savedLike = saveLikeUnlikeJPARepository.save(saveLike);
+            Likesdislike savedLike = saveLikesDislikeJPARepository.save(saveLike);
 
             outOfSavedLikes = savedLike;
         }
