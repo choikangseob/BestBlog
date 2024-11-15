@@ -21,32 +21,48 @@ public class SaveLikesDislikeService {
         switch (selectType){
 
             case LIKE:
-                
-                
-                    Likesdislike saveLikes = Likesdislike.from(saveLikesDislikeRequest);
-                Optional<Likesdislike> existingLikes = saveLikesDislikeJPARepository.findById(saveLikesDislikeRequest.getId());
 
-                if(existingLikes.isEmpty()||(existingLikes.isPresent() && existingLikes.get().getDislike() == 0 && existingLikes.get().getLikes() == 0)){
+                Optional<Likesdislike> existingLikes = saveLikesDislikeJPARepository.findByArticleIdAndCreateMemberId(saveLikesDislikeRequest.articleId(),saveLikesDislikeRequest.createMemberId());
+
+                if (existingLikes.isEmpty() || (existingLikes.isPresent() && existingLikes.get().getDislike() == 0 && existingLikes.get().getLikes() == 0)) {
+                    Likesdislike saveLikes;
+
+                    if (existingLikes.isPresent()) {
+                        return null;
+                    } else {
+                        saveLikes = Likesdislike.from(saveLikesDislikeRequest);
+                    }
+
                     saveLikes.setLikes(saveLikes.getLikes() + 1);
+
                     Likesdislike savedLikes = saveLikesDislikeJPARepository.save(saveLikes);
 
                     return LikesDislikeResponse.of(savedLikes);
-                }else{
-                System.out.println("좋아요나 싫어요를  눌렀던 게시글 입니다");
-                return null;
-            }
+                } else {
+                    System.out.println("좋아요나 싫어요를 눌렀던 게시글입니다");
+                    return null;
+                }
+
             case DISLIKE:
-                Likesdislike saveDislike = Likesdislike.from(saveLikesDislikeRequest);
-                Optional<Likesdislike> existingDislike = saveLikesDislikeJPARepository.findById(saveLikesDislikeRequest.getId());
 
-                if(existingDislike.isEmpty() || (existingDislike.isPresent() && existingDislike.get().getDislike() == 0 && existingDislike.get().getLikes() == 0)){
-                    saveDislike.setDislike(saveDislike.getDislike() + 1);
-                    Likesdislike savedDislike = saveLikesDislikeJPARepository.save(saveDislike);
+                Optional<Likesdislike> existingDislike = saveLikesDislikeJPARepository.findByArticleIdAndCreateMemberId(saveLikesDislikeRequest.articleId(),saveLikesDislikeRequest.createMemberId());
 
-                    return LikesDislikeResponse.of(savedDislike);
+                if (existingDislike.isEmpty() || (existingDislike.isPresent() && existingDislike.get().getDislike() == 0 && existingDislike.get().getLikes() == 0)) {
+                    Likesdislike saveDislike;
 
-                }else{
-                    System.out.println("싫어요나 좋아요를 눌렀던 게시글 입니다");
+                    if (existingDislike.isPresent()) {
+                        return null;
+                    } else {
+                        saveDislike = Likesdislike.from(saveLikesDislikeRequest);
+                    }
+
+                    saveDislike.setLikes(saveDislike.getLikes() + 1);
+
+                    Likesdislike savedDIslike = saveLikesDislikeJPARepository.save(saveDislike);
+
+                    return LikesDislikeResponse.of(savedDIslike);
+                } else {
+                    System.out.println("좋아요나 싫어요를 눌렀던 게시글입니다");
                     return null;
                 }
 
