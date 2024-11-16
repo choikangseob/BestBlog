@@ -11,12 +11,12 @@ public record ArticleResponse(
 
         String content
 ) {
-    public static ArticleResponse of(Article savedArticle){
+    public static ArticleResponse of(Article article){
 
         return ArticleResponse.builder()
-                .id(savedArticle.getId())
-                .title(savedArticle.getTitle())
-                .content(savedArticle.getContent())
+                .id(article.getId())
+                .title(article.getTitle())
+                .content(article.getContent())
                 .build();
     }
 }

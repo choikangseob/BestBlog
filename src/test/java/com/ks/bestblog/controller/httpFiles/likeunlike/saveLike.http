@@ -1,10 +1,5 @@
 ### POST request to example server
-POST http://localhost:8080/saveLikesDislikeAction?selectType=LIKE
+POST http://localhost:8080/saveArticleReaction/5/LIKE
 Content-Type: application/json
 Authorization: {{authToken}}
 
-{
-  "articleId": 5,
-  "createMemberId": 12,
-  "type": "LIKE"
-}

@@ -4,6 +4,6 @@ Content-Type: application/json
 Authorization: {{authToken}}
 
 {
-  "id":25,
+  "id":31,
   "type": "LIKE"
 }
