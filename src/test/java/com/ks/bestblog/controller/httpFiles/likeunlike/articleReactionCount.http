@@ -1,0 +1,6 @@
+### GET request to example server
+GET http://localhost:8080/articleReactionCount/5
+Content-Type: application/json
+Authorization: {{authToken}}
+
+###
