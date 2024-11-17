@@ -1,4 +1,4 @@
-package com.ks.bestblog.repository;
+package com.ks.bestblog.repository.member;
 
 import com.ks.bestblog.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;

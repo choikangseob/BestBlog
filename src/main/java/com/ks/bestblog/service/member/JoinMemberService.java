@@ -1,9 +1,9 @@
-package com.ks.bestblog.service;
+package com.ks.bestblog.service.member;
 
-import com.ks.bestblog.dto.request.category.JoinMemberRequest;
-import com.ks.bestblog.dto.response.category.MemberResponse;
+import com.ks.bestblog.dto.request.member.JoinMemberRequest;
+import com.ks.bestblog.dto.response.member.MemberResponse;
 import com.ks.bestblog.entity.Member;
-import com.ks.bestblog.repository.MemberJPARepository;
+import com.ks.bestblog.repository.member.MemberJPARepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

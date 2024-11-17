@@ -12,5 +12,5 @@ public interface ArticleReactionJPARepository extends JpaRepository<ArticleReact
 
     Optional<ArticleReaction> findByArticleIdAndTypeAndCreateMemberId(long articleId, ArticleReactionType type, long createMemberId);
 
-    List<ArticleReaction> findAllByArticleId(long articleId);
+    List<ArticleReaction> findAllByArticleIdAndCreateMemberId(long articleId, long memberId);
 }

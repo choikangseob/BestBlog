@@ -1,0 +1,11 @@
+### Send POST request with json body
+POST http://localhost:8080/updateMember
+Content-Type: application/json
+Authorization: {{authToken}}
+
+
+{
+  "id": 6,
+  "introduction": "떠돌이입니다",
+  "profileImageUrl": "/imag"
+}

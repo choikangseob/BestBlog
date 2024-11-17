@@ -1,7 +1,6 @@
 package com.ks.bestblog.service.articleReaction;
 
 
-import com.ks.bestblog.dto.response.articleReaction.ArticleReactionResponse;
 import com.ks.bestblog.dto.response.articleReaction.ArticleReactionsActiveResponse;
 import com.ks.bestblog.entity.ArticleReaction;
 import com.ks.bestblog.enums.ArticleReactionType;
@@ -21,10 +20,11 @@ public class ArticleReactionCountService {
 
     private final ArticleReactionJPARepository articleReactionJPARepository;
 
-    public ArticleReactionsActiveResponse getArticleReactionCount(long articleId) {
+    public ArticleReactionsActiveResponse getArticleReactionCount(long articleId,long memberId) {
 
-        List<ArticleReaction> allGetArticleReactionList = articleReactionJPARepository.findAllByArticleId(articleId);
-        Map<String, List<ArticleReaction>> groupedArticleReactionList = allGetArticleReactionList.stream().collect(Collectors.groupingBy(articleReaction -> articleReaction.getType().toString()));
+        List<ArticleReaction> allGetArticleReactionList = articleReactionJPARepository.findAllByArticleIdAndCreateMemberId(articleId,memberId);
+        Map<String, List<ArticleReaction>> groupedArticleReactionList = allGetArticleReactionList.stream()
+                .collect(Collectors.groupingBy(articleReaction -> articleReaction.getType().toString()));
 
 
         ArticleReactionsActiveResponse articleReactionsActiveResponse = ArticleReactionsActiveResponse.builder()

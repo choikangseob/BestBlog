@@ -3,7 +3,7 @@ package com.ks.bestblog.controller;
 
 import com.ks.bestblog.dto.request.JoinMemberRequest1;
 import com.ks.bestblog.dto.response.MemberResponse1;
-import com.ks.bestblog.service.JoinMemberService;
+import com.ks.bestblog.service.member.JoinMemberService;
 import com.ks.bestblog.service.JoinMemberService1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

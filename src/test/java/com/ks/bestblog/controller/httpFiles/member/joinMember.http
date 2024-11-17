@@ -4,6 +4,8 @@ Content-Type: application/json
 
 {
   "username": "maple",
-  "email": "vwko12345@naver.com",
-  "password": "123123"
+  "email": "vwko1234567@naver.com",
+  "password": "123123",
+  "introduction": "방랑자입니다",
+  "profileImage": "/image"
 }

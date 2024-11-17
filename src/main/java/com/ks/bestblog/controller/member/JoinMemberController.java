@@ -1,8 +1,8 @@
-package com.ks.bestblog.controller.category;
+package com.ks.bestblog.controller.member;
 
-import com.ks.bestblog.dto.request.category.JoinMemberRequest;
-import com.ks.bestblog.dto.response.category.MemberResponse;
-import com.ks.bestblog.service.JoinMemberService;
+import com.ks.bestblog.dto.request.member.JoinMemberRequest;
+import com.ks.bestblog.dto.response.member.MemberResponse;
+import com.ks.bestblog.service.member.JoinMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
