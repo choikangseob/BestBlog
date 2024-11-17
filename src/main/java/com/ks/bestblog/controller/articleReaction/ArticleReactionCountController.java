@@ -1,6 +1,7 @@
 package com.ks.bestblog.controller.articleReaction;
 
 import com.ks.bestblog.dto.response.articleReaction.ArticleReactionResponse;
+import com.ks.bestblog.dto.response.articleReaction.ArticleReactionsActiveResponse;
 import com.ks.bestblog.entity.ArticleReaction;
 import com.ks.bestblog.service.articleReaction.ArticleReactionCountService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class ArticleReactionCountController {
 
 
     @GetMapping("/articleReactionCount/{articleId}")
-    public ResponseEntity<List<ArticleReactionResponse>> articleReactionCount(
+    public ResponseEntity<ArticleReactionsActiveResponse> articleReactionCount(
 
             @PathVariable("articleId") long articleId
     ){
