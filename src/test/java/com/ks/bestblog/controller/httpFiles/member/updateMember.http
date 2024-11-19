@@ -6,6 +6,6 @@ Authorization: {{authToken}}
 
 {
   "id": 6,
-  "introduction": "떠돌이입니다",
-  "profileImageUrl": "/imag"
+  "introduction": "유랑자입니다",
+  "profileImageUrl": "/ima"
 }

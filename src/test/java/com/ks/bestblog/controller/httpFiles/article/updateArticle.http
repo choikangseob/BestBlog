@@ -7,6 +7,7 @@ Authorization: {{authToken}}
   "id": 5,
   "title": "취미",
   "content": "상상 그 이상의 재미 코딩!",
-  "categoryId": 4
+  "categoryId": 4,
+  "isPublic": "true"
 }
 

@@ -7,6 +7,10 @@ public record SaveArticleRequest(
 
         String content,
 
-        long categoryId
+        long categoryId,
+
+        String isPublic,
+
+        long views
 ) {
 }

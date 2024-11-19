@@ -39,9 +39,12 @@ public class EssentialColumns {
 
     @PreUpdate
     public void preUpdateUpdatedByUserNo() {
-        MemberDetails memberDetails = (MemberDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        this.updateMemberId = memberDetails.getId();
-        this.updateDate = LocalDateTime.now();
-    }
 
+            MemberDetails memberDetails = (MemberDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (memberDetails != null) {
+            this.updateMemberId = memberDetails.getId();
+            this.updateDate = LocalDateTime.now();
+        }
+    }
 }

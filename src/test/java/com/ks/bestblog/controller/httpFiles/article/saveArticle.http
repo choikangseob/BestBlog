@@ -7,6 +7,7 @@ Authorization: {{authToken}}
 
   "title": "취미",
   "content": "오늘은 코딩을 해보았습니다",
-  "categoryId": 4
+  "categoryId": 4,
+  "isPublic": "true"
 }
 

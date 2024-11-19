@@ -27,6 +27,10 @@ public class GetArticleService {
         Optional<Article> articleOpt = articleJPARepository.findById(id);
         Article article = articleOpt.orElseThrow(() -> new RuntimeException("값이 없습니다"));
 
+            article.setViews(article.getViews() + 1);
+            articleJPARepository.save(article);
+
+
         return ArticleResponse.of(article);
 
     }

@@ -27,6 +27,10 @@ public class Article extends EssentialColumns {
 
     private long categoryId;
 
+    private String isPublic;
+
+    private long views;
+
     public static Article from(SaveArticleRequest saveArticleRequest){
         return new Article(saveArticleRequest);
     }
@@ -37,5 +41,8 @@ public class Article extends EssentialColumns {
         this.title = saveArticleRequest.title();
         this.content = saveArticleRequest.content();
         this.categoryId = saveArticleRequest.categoryId();
+        this.isPublic = saveArticleRequest.isPublic();
+        this.views = saveArticleRequest.views();
+
     }
 }

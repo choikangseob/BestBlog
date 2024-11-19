@@ -1,8 +1,5 @@
 ### GET request to example server
-GET http://localhost:8080/articles
+GET http://localhost:8080/getArticle/6
 Content-Type: application/json
-Authorization: {{authToken}}
 
-{
-  "createMemberId": 12
-}
+

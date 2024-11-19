@@ -9,7 +9,12 @@ public record ArticleResponse(
 
         String title,
 
-        String content
+        String content,
+
+        String isPublic,
+
+        long views
+
 ) {
     public static ArticleResponse of(Article article){
 
@@ -17,6 +22,8 @@ public record ArticleResponse(
                 .id(article.getId())
                 .title(article.getTitle())
                 .content(article.getContent())
+                .isPublic(article.getIsPublic())
+                .views(article.getViews())
                 .build();
     }
 }

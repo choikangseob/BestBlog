@@ -9,7 +9,9 @@ public record UpdateArticleResponse(
 
         String title,
 
-        String content
+        String content,
+
+        String isPublic
 ) {
     public static UpdateArticleResponse of(Article UpdateAritcle){
 
@@ -17,6 +19,7 @@ public record UpdateArticleResponse(
                 .id(UpdateAritcle.getId())
                 .title(UpdateAritcle.getTitle())
                 .content(UpdateAritcle.getContent())
+                .isPublic(UpdateAritcle.getIsPublic())
                 .build();
     }
 }

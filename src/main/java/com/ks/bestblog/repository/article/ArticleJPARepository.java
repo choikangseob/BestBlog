@@ -13,5 +13,5 @@ public interface ArticleJPARepository extends JpaRepository<Article,Long> {
 
     List<ArticleResponse> findByCreateMemberId(long CreateMemberId);
 
-    Optional<Article> findById(long articleId);
+    Optional<Article> findById(long categoryId);
 }

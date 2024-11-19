@@ -24,10 +24,14 @@ public class SecurityConfig {
     private final JWTUtil jwtUtil;
 
 
+
     public SecurityConfig(AuthenticationConfiguration authenticationConfiguration, JWTUtil jwtUtil) {
         this.authenticationConfiguration = authenticationConfiguration;
         this.jwtUtil = jwtUtil;
     }
+
+
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -43,7 +47,8 @@ public class SecurityConfig {
     }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-       http
+
+        http
                .csrf(AbstractHttpConfigurer::disable);
         // spring security 에서 제공하는 form login 기능을 사용하지 않겠다는 의미
         http
@@ -56,7 +61,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/member","/error"
                         ,"/categories","/articles/{MemberId}"
-                        ,"/article/{Id}").permitAll()
+                        ,"/getArticle/{Id}").permitAll()
                         .anyRequest().authenticated()
                 );
 

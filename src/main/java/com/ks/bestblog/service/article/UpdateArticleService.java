@@ -26,6 +26,7 @@ public class UpdateArticleService {
         article.setTitle(updateArticleRequest.title());
         article.setContent(updateArticleRequest.content());
         article.setCategoryId(updateArticleRequest.categoryId());
+        article.setIsPublic(updateArticleRequest.isPublic());
 
         return UpdateArticleResponse.of(article);
     }

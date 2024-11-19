@@ -7,6 +7,8 @@ public record UpdateArticleRequest(
 
         String content,
 
-        long categoryId
+        long categoryId,
+
+        String isPublic
 ) {
 }
