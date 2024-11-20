@@ -61,7 +61,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/member","/error"
                         ,"/categories","/articles/{MemberId}"
-                        ,"/getArticle/{Id}").permitAll()
+                        ,"/getArticle/{Id}","/viewsAndReactionRanking").permitAll()
                         .anyRequest().authenticated()
                 );
 
