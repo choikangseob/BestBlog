@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ks.bestblog.repository.comment.GetCommentMybatisRepository">
+
+
+    <select id="findAllByArticleId" resultType="com.ks.bestblog.dto.response.comment.CommentResponse">
+        WITH RECURSIVE CommentHierarchy AS (
+            -- Base case: 가장 상위 댓글을 찾음 (parent_id = 0인 댓글들)
+            SELECT id,
+                   article_id,
+                   depth,
+                   parent_id,
+                   comment,
+                   CAST(id AS CHAR(255)) AS path  -- 경로 추적용 (id를 기준으로 초기화)
+            FROM Comment
+            WHERE article_id = ${articleId} AND parent_id = 0  -- 상위 댓글(부모가 0인 댓글)만 가져옴
+
+            UNION ALL
+
+            -- Recursive case: 자식 댓글들을 재귀적으로 찾음
+            SELECT c.id,
+                   c.article_id,
+                   ch.depth + 1 AS depth,  -- 자식 댓글에 대해 깊이를 증가
+                   c.parent_id,
+                   c.comment,
+                   CONCAT(ch.path, '-', c.id) AS path  -- 부모 댓글의 path에 자식 댓글 id를 추가
+            FROM Comment c
+                     INNER JOIN CommentHierarchy ch ON c.parent_id = ch.id  -- 부모 댓글에 해당하는 자식 댓글을 재귀적으로 찾음
+        )
+-- 최종 결과: 댓글 정보를 출력하고, 경로를 기반으로 정렬
+        SELECT id,
+               article_id,
+               depth,
+               parent_id,
+               comment,
+               path
+        FROM CommentHierarchy
+        ORDER BY path;
+    </select>
+
+
+
+</mapper>

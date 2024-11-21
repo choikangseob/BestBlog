@@ -1,4 +1,3 @@
-### POST request to example server
 POST http://localhost:8080/saveCategory
 Content-Type: application/json
 Authorization: {{authToken}}
@@ -8,4 +7,5 @@ Authorization: {{authToken}}
   "title": "항목22",
   "parentId": 31
 }
+
 

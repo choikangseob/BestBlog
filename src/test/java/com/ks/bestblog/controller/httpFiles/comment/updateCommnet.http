@@ -1,0 +1,12 @@
+POST http://localhost:8080/updateComment
+Content-Type: application/json
+Authorization: {{authToken}}
+
+{
+  "id": 7,
+  "articleId": 6,
+  "depth": 1,
+  "comment": "맞아요 진짜 그런거 같아요 ㅋㅋㅋㅋㅋㅋㅋ",
+  "parentId": 5
+}
+

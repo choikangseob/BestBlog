@@ -16,7 +16,7 @@ public class GetArticleViewsAndReactionRankingController {
 
     private final GetArticleViewsAndReactionRankingService getArticleViewsAndReactionRankingService;
 
-    @GetMapping("/viewsAndReactionRanking")
+    @GetMapping("/viewsAndReactionAndCommentRanking")
     public ResponseEntity<List<GetArticleViewsAndReactionRankingResponse>> viewsAndReactionRanking() {
         List<GetArticleViewsAndReactionRankingResponse> rankingResponse = getArticleViewsAndReactionRankingService.articleViewsAndReactionRanking();
 

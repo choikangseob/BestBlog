@@ -1,0 +1,8 @@
+POST http://localhost:8080/deleteCommnet
+Content-Type: application/json
+Authorization: {{authToken}}
+
+{
+  "id": 7
+}
+
