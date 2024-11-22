@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ks.bestblog.repository.rank.GetReactionRankingMybatisRepository">
+
+
+    <select id="findTop10ByOrderByTypeDesc" resultType="com.ks.bestblog.entity.ArticleReaction">
+        SELECT
+            article_id,
+            type,
+            reaction_count
+        FROM (
+                 SELECT
+                     article_id,
+                     type,
+                     COUNT(*) AS reaction_count
+                 FROM
+                     article_reaction
+                 WHERE
+                     type IN ('LIKE', 'DISLIKE', 'SAD', 'ANGRY')
+                 GROUP BY
+                     article_id, type
+                 ORDER BY
+                     COUNT(*) DESC
+             ) AS ranked_reactions
+        LIMIT 10
+    </select>
+
+</mapper>

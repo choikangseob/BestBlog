@@ -1,13 +1,12 @@
 package com.ks.bestblog.service.rank;
 
 import com.ks.bestblog.dto.response.article.ArticleResponse;
-import com.ks.bestblog.dto.response.articleReaction.ArticleReactionResponse;
-import com.ks.bestblog.dto.response.comment.CommentResponse;
 import com.ks.bestblog.dto.response.rank.GetArticleViewsAndReactionRankingResponse;
 import com.ks.bestblog.entity.ArticleReaction;
-import com.ks.bestblog.repository.comment.GetCommentJPARepository;
+import com.ks.bestblog.entity.Comment;
 import com.ks.bestblog.repository.rank.GetArticleViewsRankingJPARepository;
-import com.ks.bestblog.repository.rank.GetReactionRankingJPARepository;
+import com.ks.bestblog.repository.rank.GetCommentDescAscRankingMybatisRepository;
+import com.ks.bestblog.repository.rank.GetReactionRankingMybatisRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,16 +19,16 @@ public class GetArticleViewsAndReactionRankingService {
 
 private final GetArticleViewsRankingJPARepository getArticleViewsRankingJPARepository;
 
-private final GetReactionRankingJPARepository getReactionRankingJPARepository;
+private final GetReactionRankingMybatisRepository getReactionRankingMybatisRepository;
 
-private final GetCommentJPARepository getCommentJPARepository;
+private final GetCommentDescAscRankingMybatisRepository getCommentDescAscRankingMybatisRepository;
 
     public List<GetArticleViewsAndReactionRankingResponse> articleViewsAndReactionRanking() {
 
         List<ArticleResponse> articleViews = getArticleViewsRankingJPARepository.findTop10ByOrderByViewsDesc();
-        List<ArticleReaction> articleReactions = getReactionRankingJPARepository.findTop10ByOrderByTypeDesc();
-        List<CommentResponse> commentDesc = getCommentJPARepository.findTop10ByOrderByCommentDesc();
-        List<CommentResponse> commentAsc = getCommentJPARepository.findTop10ByOrderByCommentAsc();
+        List<ArticleReaction> articleReactions = getReactionRankingMybatisRepository.findTop10ByOrderByTypeDesc();
+        List<Comment> commentDesc = getCommentDescAscRankingMybatisRepository.findTop10ByOrderByCommentDesc();
+        List<Comment> commentAsc = getCommentDescAscRankingMybatisRepository.findTop10ByOrderByCommentAsc();
 
 
         List<GetArticleViewsAndReactionRankingResponse> combinedRanking = new ArrayList<>();
@@ -44,8 +43,8 @@ private final GetCommentJPARepository getCommentJPARepository;
             GetArticleViewsAndReactionRankingResponse response = GetArticleViewsAndReactionRankingResponse.builder()
                     .articleResponse(articleViews.get(i))  // ArticleResponse 객체
                     .articleReaction(articleReactions.get(i))  // ArticleReactionResponse 객체
-                    .commentResponse(commentDesc.get(i))
-                    .commentResponse(commentAsc.get(i))
+                    .comment(commentDesc.get(i))
+                    .comment(commentAsc.get(i))
                     .build();
             combinedRanking.add(response);
         }

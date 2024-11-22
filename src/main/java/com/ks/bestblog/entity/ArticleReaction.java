@@ -27,6 +27,8 @@ public class ArticleReaction extends EssentialColumns {
 
 
 
+
+
     public static ArticleReaction from(long articleId, ArticleReactionType type, MemberDetails member) {
 
         return new ArticleReaction(articleId,type,member);

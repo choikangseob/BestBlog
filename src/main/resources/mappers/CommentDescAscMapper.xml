@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ks.bestblog.repository.rank.GetCommentDescAscRankingMybatisRepository">
+
+
+    <select id="findTop10ByOrderByCommentDesc" resultType="com.ks.bestblog.entity.Comment">
+
+        SELECT
+            article_id,
+            COUNT(*) as comment
+        FROM
+            comment
+        GROUP BY
+            article_id
+        ORDER BY
+            COUNT(*) DESC;
+    </select>
+
+    <select id="findTop10ByOrderByCommentAsc" resultType="com.ks.bestblog.entity.Comment">
+
+        SELECT
+            article_id,
+            COUNT(*) as comment
+        FROM
+            comment
+        GROUP BY
+            article_id
+        ORDER BY
+            COUNT(*) ASC;
+    </select>
+
+
+</mapper>

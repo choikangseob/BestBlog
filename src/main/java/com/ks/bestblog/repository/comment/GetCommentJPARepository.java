@@ -10,7 +10,5 @@ public interface GetCommentJPARepository extends JpaRepository<Comment, Long> {
 
     List<CommentResponse> findByCreateMemberId(long id);
 
-    List<CommentResponse> findTop10ByOrderByCommentDesc();
 
-    List<CommentResponse> findTop10ByOrderByCommentAsc();
 }
