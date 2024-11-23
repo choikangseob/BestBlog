@@ -1,12 +1,14 @@
 package com.ks.bestblog.repository.rank;
 
-import com.ks.bestblog.entity.ArticleReaction;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.ks.bestblog.dto.response.rank.ArticleRankingResponse;
+import com.ks.bestblog.enums.ArticleReactionType;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-public interface GetReactionRankingMybatisRepository extends JpaRepository<ArticleReaction, Long> {
+@Mapper
+public interface GetReactionRankingMybatisRepository {
 
 
-    List<ArticleReaction> findTop10ByOrderByTypeDesc();
+    List<ArticleRankingResponse> getArticleRankingByTypeCount(ArticleReactionType reactionType);
 }

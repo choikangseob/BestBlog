@@ -1,0 +1,4 @@
+### GET request to example server
+GET http://localhost:8080/articleRanking?searchType=REACTION&reactionType=DISLIKE
+Content-Type: application/json
+###

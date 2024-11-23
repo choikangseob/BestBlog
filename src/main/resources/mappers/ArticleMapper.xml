@@ -3,30 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ks.bestblog.repository.article.ArticleJPARepository">
+<mapper namespace="com.ks.bestblog.repository.rank.GetArticleViewsRankingMybatisRepository">
 
+<select id="getArticleRankingByViewsCount" resultType="com.ks.bestblog.dto.response.rank.ArticleRankingResponse">
 
-<!--        <select id="findAllByMemberId" resultType="com.ks.bestblog.dto.response.article.ArticleResponse">
+    SELECT
+        DENSE_RANK() OVER (ORDER BY views DESC) AS rank,
+    id,
+       title,
+       views as `count`
+    FROM article;
+</select>
 
-            select *
-                    from article
-                    where create_member_id = ${memberId}
-        </select>
-
-        <select id="findByCreateMemberId" resultType="com.ks.bestblog.dto.response.article.ArticleResponse">
-
-            select *
-                    from article
-                    where create_member_id = ${createMemberId}
-
-        </select>-->
-
-        <select id="findByIdAndTitle" resultType="com.ks.bestblog.dto.response.article.ArticleResponse">
-
-            select *
-                    from article
-                    where id = ${id}
-
-        </select>
 
 </mapper>

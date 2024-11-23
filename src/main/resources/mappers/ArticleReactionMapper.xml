@@ -6,26 +6,23 @@
 <mapper namespace="com.ks.bestblog.repository.rank.GetReactionRankingMybatisRepository">
 
 
-    <select id="findTop10ByOrderByTypeDesc" resultType="com.ks.bestblog.entity.ArticleReaction">
+    <select id="getArticleRankingByTypeCount" resultType="com.ks.bestblog.dto.response.rank.ArticleRankingResponse">
         SELECT
+            DENSE_RANK() OVER (ORDER BY reaction_count DESC) AS rank,
+    article.id,
+    article.title,
+    article_reaction.reaction_count as `count`
+        FROM article article
+            LEFT JOIN (
+            SELECT
             article_id,
-            type,
-            reaction_count
-        FROM (
-                 SELECT
-                     article_id,
-                     type,
-                     COUNT(*) AS reaction_count
-                 FROM
-                     article_reaction
-                 WHERE
-                     type IN ('LIKE', 'DISLIKE', 'SAD', 'ANGRY')
-                 GROUP BY
-                     article_id, type
-                 ORDER BY
-                     COUNT(*) DESC
-             ) AS ranked_reactions
-        LIMIT 10
+            COUNT(*) AS reaction_count
+            FROM article_reaction
+            WHERE
+            TYPE = #{reactionType}
+            GROUP BY article_id
+            ) article_reaction ON article.id = article_reaction.article_id
+        ORDER BY rank;
     </select>
 
 </mapper>
