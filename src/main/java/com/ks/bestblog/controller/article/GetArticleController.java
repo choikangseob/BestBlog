@@ -30,7 +30,7 @@ public class GetArticleController {
 
     }
 
-    @GetMapping("/getArticle/{Id}")
+    @GetMapping("/article/{Id}")
     public ResponseEntity<ArticleResponse> getArticle(
             @PathVariable("Id") Long id){
 
