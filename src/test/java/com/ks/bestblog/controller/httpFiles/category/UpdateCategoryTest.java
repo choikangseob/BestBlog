@@ -27,7 +27,7 @@ import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 @ActiveProfiles("test")
 @DataJpaTest
-public class UpdateCommentTest {
+public class UpdateCategoryTest {
 
     @Autowired
     private UpdateCategoryJPARepository updateCategoryJPARepository;
