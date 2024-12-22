@@ -8,11 +8,13 @@ import com.ks.bestblog.dto.response.category.CategoryResponse;
 import com.ks.bestblog.entity.Category;
 import com.ks.bestblog.entity.Member;
 import com.ks.bestblog.repository.category.SaveCategoryJPARepository;
+import com.ks.bestblog.service.category.SaveCategoryService;
 import io.jsonwebtoken.Jwts;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,11 +26,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 @ActiveProfiles("test")
-@DataJpaTest
+@SpringBootTest
 public class CategorySaveTest {
 
     @Autowired
-    private SaveCategoryJPARepository saveCategoryJPARepository;
+    private SaveCategoryService saveCategoryService;
 
     @MockBean
     private JWTUtil jwtUtil;
@@ -42,7 +44,7 @@ public class CategorySaveTest {
     @DisplayName("카테고리의 리퀘스트가 리스폰스와 일치하는지")
     public void testSaveCategory (){
         // given
-        SaveCategoryRequest getCategory = new SaveCategoryRequest(1, 0, 0, "코딩공부");
+        SaveCategoryRequest getCategory = new SaveCategoryRequest(3, 0, 0, "코딩공부");
 
         MemberDetails memberDetails = new MemberDetails(Member.builder()
                 .id(1L)
@@ -53,28 +55,23 @@ public class CategorySaveTest {
         createJwt(memberDetails);
 
         // when
-        CategoryResponse categoryResponse = saveCategory(getCategory);
+        saveCategoryService.saveCategory(getCategory);
+
 
         // then
-        assertThat(categoryResponse).isNotNull();
+        assertThat(saveCategoryService.saveCategory(getCategory)).isNotNull();
 
         assertSoftly(softly -> {
-            softly.assertThat(categoryResponse.id()).isEqualTo(getCategory.id());
-            softly.assertThat(categoryResponse.depth()).isEqualTo(getCategory.depth());
-            softly.assertThat(categoryResponse.parentId()).isEqualTo(getCategory.parentId());
-            softly.assertThat(categoryResponse.title()).isEqualTo(getCategory.title());
+            softly.assertThat(saveCategoryService.saveCategory(getCategory).id()).isEqualTo(getCategory.id());
+            softly.assertThat(saveCategoryService.saveCategory(getCategory).depth()).isEqualTo(getCategory.depth());
+            softly.assertThat(saveCategoryService.saveCategory(getCategory).parentId()).isEqualTo(getCategory.parentId());
+            softly.assertThat(saveCategoryService.saveCategory(getCategory).title()).isEqualTo(getCategory.title());
 
         });
 
     }
 
-    public CategoryResponse saveCategory(SaveCategoryRequest saveCategoryRequest){
 
-        Category category = Category.from(saveCategoryRequest);
-        Category savedCategory = saveCategoryJPARepository.save(category);
-
-        return CategoryResponse.of(savedCategory);
-    }
 
     public String createJwt(MemberDetails memberDetails) {
 
